@@ -15,7 +15,7 @@ redis_server.set('longitude', 13.21008)
 redis_server.set('latitude', 55.71106)
 
 #write your own movedrone fuction here, this function shoud
-# 1. get the lastest longitude and latitude data
+# 1. get the latest longitude and latitude data
 # 2. update longitude and latitude values with input movement data
 # 3. write the updated data to the database
 # ===============================================
