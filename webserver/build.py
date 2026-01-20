@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 import time
@@ -48,6 +48,14 @@ def get_location():
         x_svg, y_svg = translate((longitude, latitude))
         emit('get_location', (x_svg, y_svg))
         time.sleep(0.01)
+        
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        app.static_folder,
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+        )
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port='5000')
+    app.run(debug=True, host='127.0.0.1', port='5000')
